@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=GameEnviroment
+comment0.text=\r\n\ The\ Game\ Enviroment\ creates\ the\ enviroment\ where\ our\ game\ of\ tic-tac-toe\ is\ played\r\n\r\n\ @author\ Kwinn\ Danforth\r\n\ @version\ 1.0.01\r\n
+comment1.params=
+comment1.target=GameEnviroment()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ GamePlay\r\n
+comment2.params=
+comment2.target=void\ printIntro()
+comment2.text=\r\n\ This\ method\ will\ print\ an\ introduction\ for\ the\ game\r\n
+comment3.params=
+comment3.target=void\ selectNumOfPlayers()
+comment3.text=\r\n\ This\ method\ lets\ the\ user\ choose\ 1\ or\ 2\ players\r\n
+comment4.params=
+comment4.target=void\ play()
+comment4.text=\r\n\ This\ method\ loops\ through\ the\ game\ play\ while\ the\ win\ state\ is\ continue\r\n
+comment5.params=
+comment5.target=void\ changeTurn()
+comment5.text=\r\n\ This\ method\ changes\ which\ players\ turn\ it\ is\r\n
+comment6.params=
+comment6.target=void\ computerSelect()
+comment6.text=\r\n\ This\ method\ will\ allow\ the\ computer\ to\ simulate\ a\ player2\ selection\r\n
+comment7.params=
+comment7.target=void\ checkBoard()
+comment7.text=\r\n\ This\ method\ will\ check\ the\ win\ state\ of\ the\ game\r\n
+numComments=8

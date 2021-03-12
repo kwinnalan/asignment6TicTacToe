@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Board
+comment0.text=\r\n\ This\ class\ creates\ the\ board\ object\ that\ our\ TicTacToe\ game\ will\ be\ played\ on.\r\n\r\n\ @author\ Kwinn\ Danforth\r\n\ @version\ 1.0.01\r\n
+comment1.params=
+comment1.target=Board()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Board\r\n
+comment2.params=coordinates\ symbol
+comment2.target=boolean\ markSpot(int[],\ java.lang.String)
+comment2.text=\r\n\ This\ method\ is\ used\ to\ change\ a\ spot\ on\ the\ board\r\n\r\n\ @param\ \ the\ coordinates\ for\ the\ spot\ as\ well\ as\ the\ symbol\ to\ replace\ the\ spot\ with.\r\n
+comment3.params=
+comment3.target=void\ printBoard()
+comment3.text=\r\n\ This\ method\ is\ used\ to\ print\ the\ board\ to\ the\ screen\r\n\r\n
+comment4.params=x\ y
+comment4.target=java.lang.String\ getBoard(int,\ int)
+comment4.text=\r\n\ This\ method\ is\ used\ to\ get\ the\ value\ of\ a\ spot\ on\ the\ board\r\n\r\n@param\ x\ and\ y\ coordinates\ for\ the\ spot\r\n
+numComments=5
