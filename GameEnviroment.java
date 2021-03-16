@@ -8,23 +8,24 @@ import java.util.Scanner;
  */
 public class GameEnviroment
 {
-    private Board board;
-    private Player player1;
-    private Player player2;
+    private final Board board;
+    private final Player player1;
+    private final Player player2;
+    private final Scanner scanner = new Scanner(System.in);
     private String numPlayers;
     private int whosTurn;
     private int turnCount;
     private String winState;
-    private Scanner scanner = new Scanner(System.in);
+
     
     /**
-     * Constructor for objects of class GamePlay
+     * Constructor for objects of class GameEnviroment
      */
     public GameEnviroment()
     {
-        board = new Board();
-        player1 = new Player("X");
-        player2 = new Player("O");
+        this.board = new Board();
+        this.player1 = new Player("X");
+        this.player2 = new Player("O");
         this.whosTurn = 2;
         this.winState = "C";
         this.turnCount = 0;
@@ -59,7 +60,7 @@ public class GameEnviroment
     }
     
     /**
-     * This method loops through the game play while the win state is continue
+     * This method loops through the game play while the win state is set to continue
      */
     public void play()
     {
@@ -67,9 +68,9 @@ public class GameEnviroment
         while(winState == "C"){
             if(!isTaken){
                 changeTurn();
-                for(int i = 0; i < 25; i++){
-                    System.out.println("\n");
-                }
+                printSpace(25);
+                this.board.printBoardEnum();
+                printSpace(1);
                 this.board.printBoard();
                 System.out.println("Player " + whosTurn +" it is your turn!");
             }
@@ -85,16 +86,16 @@ public class GameEnviroment
             checkBoard();
         }
         if(winState == "W"){
-            for(int i = 0; i < 25; i++){
-                System.out.println("\n");
-            }
+            printSpace(25);
+            this.board.printBoardEnum();
+            printSpace(1);
             this.board.printBoard();
             System.out.println("Congrats! Player " + whosTurn + ", you have won!");
         }
         if(winState == "D"){
-            for(int i = 0; i < 25; i++){
-                System.out.println("\n");
-            }
+            printSpace(25);
+            this.board.printBoardEnum();
+            printSpace(1);
             this.board.printBoard();
             System.out.println("Sorry, no one has won and we are out of spots... Its a cats game!");
         }
@@ -105,11 +106,7 @@ public class GameEnviroment
      */
     public void changeTurn()
     {
-        if(whosTurn == 1){
-            this.whosTurn = 2;
-        }else{
-            this.whosTurn = 1;
-        }
+        this.whosTurn = this.whosTurn == 1 ? 2 : 1;
         this.turnCount++;
     }
     
@@ -144,7 +141,7 @@ public class GameEnviroment
         }else if(board.getBoard(2,0) == board.getBoard(2,2) && board.getBoard(2,0) == "O" && board.getBoard(2,1) != "X"){
             coordinates[0] = 2;
             coordinates[1] = 1;
-        }else if(board.getBoard(2,1) == board.getBoard(2,2) && board.getBoard(2,1) == "O" && board.getBoard(2,0) != "X"){                //check for horizonal wins
+        }else if(board.getBoard(2,1) == board.getBoard(2,2) && board.getBoard(2,1) == "O" && board.getBoard(2,0) != "X"){                //check for horizonal wins^
             coordinates[0] = 2;
             coordinates[1] = 0;
         }else if(board.getBoard(0,0) == board.getBoard(1,0) && board.getBoard(0,0) == "O" && board.getBoard(2,0) != "X"){
@@ -171,7 +168,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,2) == board.getBoard(2,2) && board.getBoard(0,2) == "O" && board.getBoard(1,2) != "X"){                   
             coordinates[0] = 1;
             coordinates[1] = 2;
-        }else if(board.getBoard(2,2) == board.getBoard(1,2) && board.getBoard(2,2) == "O" && board.getBoard(0,2) != "X"){                //check for vertical wins
+        }else if(board.getBoard(2,2) == board.getBoard(1,2) && board.getBoard(2,2) == "O" && board.getBoard(0,2) != "X"){                //check for vertical wins^
             coordinates[0] = 0;
             coordinates[1] = 2;
         }else if(board.getBoard(0,0) == board.getBoard(1,1) && board.getBoard(0,0) == "O" && board.getBoard(2,2) != "X"){
@@ -189,7 +186,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,2) == board.getBoard(2,0) && board.getBoard(0,2) == "O" && board.getBoard(1,1) != "X"){
             coordinates[0] = 1;
             coordinates[1] = 1;
-        }else if(board.getBoard(1,1) == board.getBoard(2,2) && board.getBoard(1,1) == "O" && board.getBoard(0,2) != "X"){               //check for diagonal wins
+        }else if(board.getBoard(1,1) == board.getBoard(2,2) && board.getBoard(1,1) == "O" && board.getBoard(0,2) != "X"){               //check for diagonal wins^
             coordinates[0] = 0;
             coordinates[1] = 2;
         }else if(board.getBoard(0,0) == board.getBoard(0,1) && board.getBoard(0,0) == "X" && board.getBoard(0,2) != "O"){
@@ -216,7 +213,7 @@ public class GameEnviroment
         }else if(board.getBoard(2,0) == board.getBoard(2,2) && board.getBoard(2,0) == "X" && board.getBoard(2,1) != "O"){
             coordinates[0] = 2;
             coordinates[1] = 1;
-        }else if(board.getBoard(2,1) == board.getBoard(2,2) && board.getBoard(2,1) == "X" && board.getBoard(2,0) != "O"){                //check for horizonal blocks
+        }else if(board.getBoard(2,1) == board.getBoard(2,2) && board.getBoard(2,1) == "X" && board.getBoard(2,0) != "O"){                //check for horizonal blocks^
             coordinates[0] = 2;
             coordinates[1] = 0;
         }else if(board.getBoard(0,0) == board.getBoard(1,0) && board.getBoard(0,0) == "X" && board.getBoard(2,0) != "O"){
@@ -243,7 +240,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,2) == board.getBoard(2,2) && board.getBoard(0,2) == "X" && board.getBoard(1,2) != "O"){                   
             coordinates[0] = 1;
             coordinates[1] = 2;
-        }else if(board.getBoard(2,2) == board.getBoard(1,2) && board.getBoard(2,2) == "X" && board.getBoard(0,2) != "O"){                //check for vertical blocks
+        }else if(board.getBoard(2,2) == board.getBoard(1,2) && board.getBoard(2,2) == "X" && board.getBoard(0,2) != "O"){                //check for vertical blocks^
             coordinates[0] = 0;
             coordinates[1] = 2;
         }else if(board.getBoard(0,0) == board.getBoard(1,1) && board.getBoard(0,0) == "X" && board.getBoard(2,2) != "O"){
@@ -261,7 +258,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,2) == board.getBoard(2,0) && board.getBoard(0,2) == "X" && board.getBoard(1,1) != "O"){
             coordinates[0] = 1;
             coordinates[1] = 1;
-        }else if(board.getBoard(1,1) == board.getBoard(2,2) && board.getBoard(1,1) == "X" && board.getBoard(0,2) != "O"){               //check for diagonal blocks
+        }else if(board.getBoard(1,1) == board.getBoard(2,2) && board.getBoard(1,1) == "X" && board.getBoard(0,2) != "O"){               //check for diagonal blocks^
             coordinates[0] = 0;
             coordinates[1] = 2;
         }else if(board.getBoard(1,1) != "X" && board.getBoard(1,1) != "O"){                                           //if center is open take center
@@ -276,7 +273,7 @@ public class GameEnviroment
         }else if(board.getBoard(2,2) != "X" && board.getBoard(2,2) != "O"){                                           
             coordinates[0] = 2;
             coordinates[1] = 2;
-        }else if(board.getBoard(2,0) != "X" && board.getBoard(2,0) != "O"){                                           //if no win, block or center take a corner
+        }else if(board.getBoard(2,0) != "X" && board.getBoard(2,0) != "O"){                                           //if no win, block or center take a corner^
             coordinates[0] = 2;
             coordinates[1] = 0;
         }else if(board.getBoard(0,1) != "X" && board.getBoard(0,1) != "O"){                                           
@@ -288,7 +285,7 @@ public class GameEnviroment
         }else if(board.getBoard(1,2) != "X" && board.getBoard(1,2) != "O"){                                           
             coordinates[0] = 1;
             coordinates[1] = 2;
-        }else if(board.getBoard(2,1) != "X" && board.getBoard(2,1) != "O"){                                           //Select one of the four last spots
+        }else if(board.getBoard(2,1) != "X" && board.getBoard(2,1) != "O"){                                           //Select one of the four last spots^
             coordinates[0] = 2;
             coordinates[1] = 1;
         }
@@ -330,5 +327,17 @@ public class GameEnviroment
         else{
             winState = "C"; 
         }                           //C = continue
+    }
+
+    /**
+     * This method to add some white space on the screen
+     *
+     * @param n, the number of lines to add of whitespace
+     */
+    public void printSpace(int n)
+    {
+        for(int i = 0; i < n; i++){
+            System.out.println("\n");
+        }
     }
 }
