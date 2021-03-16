@@ -1,12 +1,9 @@
 ------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
+This program can be used to play either one or two player tic-tac-toe. It is written in Java.
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: Tic-tac-Java
+PURPOSE OF PROJECT: For assignment 6 of my intro Java class
+VERSION or DATE: 1.0.01
+AUTHORS: Kwinn Danforth
+
