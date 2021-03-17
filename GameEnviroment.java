@@ -150,7 +150,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,0) == board.getBoard(2,0) && board.getBoard(0,0) == "O" && board.getBoard(1,0) != "X"){
             coordinates[0] = 1;
             coordinates[1] = 0;
-        }else if(board.getBoard(2,0) == board.getBoard(1,0) && board.getBoard(0,0) == "O" && board.getBoard(0,0) != "X"){
+        }else if(board.getBoard(2,0) == board.getBoard(1,0) && board.getBoard(2,0) == "O" && board.getBoard(0,0) != "X"){
             coordinates[0] = 0;
             coordinates[1] = 0;
         }else if(board.getBoard(0,1) == board.getBoard(1,1) && board.getBoard(0,1) == "O" && board.getBoard(2,1) != "X"){
@@ -186,7 +186,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,2) == board.getBoard(2,0) && board.getBoard(0,2) == "O" && board.getBoard(1,1) != "X"){
             coordinates[0] = 1;
             coordinates[1] = 1;
-        }else if(board.getBoard(1,1) == board.getBoard(2,2) && board.getBoard(1,1) == "O" && board.getBoard(0,2) != "X"){               //check for diagonal wins^
+        }else if(board.getBoard(1,1) == board.getBoard(2,0) && board.getBoard(1,1) == "O" && board.getBoard(0,2) != "X"){               //check for diagonal wins^
             coordinates[0] = 0;
             coordinates[1] = 2;
         }else if(board.getBoard(0,0) == board.getBoard(0,1) && board.getBoard(0,0) == "X" && board.getBoard(0,2) != "O"){
@@ -222,7 +222,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,0) == board.getBoard(2,0) && board.getBoard(0,0) == "X" && board.getBoard(1,0) != "O"){
             coordinates[0] = 1;
             coordinates[1] = 0;
-        }else if(board.getBoard(2,0) == board.getBoard(1,0) && board.getBoard(0,0) == "X" && board.getBoard(0,0) != "O"){
+        }else if(board.getBoard(2,0) == board.getBoard(1,0) && board.getBoard(2,0) == "X" && board.getBoard(0,0) != "O"){
             coordinates[0] = 0;
             coordinates[1] = 0;
         }else if(board.getBoard(0,1) == board.getBoard(1,1) && board.getBoard(0,1) == "X" && board.getBoard(2,1) != "O"){
@@ -258,7 +258,7 @@ public class GameEnviroment
         }else if(board.getBoard(0,2) == board.getBoard(2,0) && board.getBoard(0,2) == "X" && board.getBoard(1,1) != "O"){
             coordinates[0] = 1;
             coordinates[1] = 1;
-        }else if(board.getBoard(1,1) == board.getBoard(2,2) && board.getBoard(1,1) == "X" && board.getBoard(0,2) != "O"){               //check for diagonal blocks^
+        }else if(board.getBoard(2,0) == board.getBoard(1,1) && board.getBoard(2,0) == "X" && board.getBoard(0,2) != "O"){               //check for diagonal blocks^
             coordinates[0] = 0;
             coordinates[1] = 2;
         }else if(board.getBoard(1,1) != "X" && board.getBoard(1,1) != "O"){                                           //if center is open take center
@@ -289,6 +289,8 @@ public class GameEnviroment
             coordinates[0] = 2;
             coordinates[1] = 1;
         }
+        System.out.println(coordinates[0]);
+        System.out.println(coordinates[1]);
         this.board.markSpot(coordinates, this.player2.getSymbol());
     }
     
